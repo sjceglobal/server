@@ -21,3 +21,12 @@ server side
 
 client side
 1. client <-> server 통신
+
+
+## 241005
+1. database 설계 및 테이블 생성(완료)
+2. Server invalidate 체크(완료)
+3. Server transaction 처리(완료)
+4. Server Webfilter 처리(개념설명)
+5. Server Session 처리(완료)
+6. 암호화(다음시간, 과제에 연결됨)
