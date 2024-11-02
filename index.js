@@ -4,10 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import pg from 'pg'
 const { Client } = pg
 
-import { createRequire } from 'module';
-
 // 추후 require가 필요한 경우 사용
-const require = createRequire(import.meta.url);
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
 
 // Express 애플리케이션 생성
 const app = express();
