@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register and Login with AES-256 Encryption</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h1>Register and Login Test</h1>
+    
+    <div>
+        <h2>Register</h2>
+        <label>Username: <input type="text" id="registerUsername"></label><br>
+        <label>Password: <input type="password" id="registerPassword"></label><br>
+        <button onclick="register()">Register</button>
+    </div>
+    
+    <div>
+        <h2>Login</h2>
+        <label>Username: <input type="text" id="loginUsername"></label><br>
+        <label>Password: <input type="password" id="loginPassword"></label><br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div>
+        <h2>Response</h2>
+        <pre id="response"></pre>
+    </div>
+
+    <script>
+        const apiUrl = 'http://localhost';
+        const secretKey = 'my_secret_key_32_chars_long!'; // 32-byte key for AES-256
+
+        // AES-256 암호화 함수
+        function encrypt(data) {
+            const secretKey = 'my_secret_key_32_chars_long!'; // 32-byte key for AES-256
+            const fixedIV = CryptoJS.enc.Hex.parse('00000000000000000000000000000000'); // 고정된 IV를 16진수로 설정
+
+            const encrypted = CryptoJS.AES.encrypt(
+                JSON.stringify(data),
+                CryptoJS.enc.Utf8.parse(secretKey),
+                { iv: fixedIV, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
+            );
+            return encrypted.toString();
+
+        }
+
+        // 회원가입 함수
+        async function register() {
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+
+            const registData = { username, password };
+            const encryptedData = encrypt(registData);
+
+            const response = await fetch(`${apiUrl}/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: encryptedData })
+            });
+
+            const result = await response.text();
+            document.getElementById('response').innerText = `Register: ${result}`;
+        }
+
+        // 로그인 함수
+        async function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const registData = { username, password };
+            const encryptedData = encrypt(registData);
+
+            const response = await fetch(`${apiUrl}/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: registData })
+            });
+
+            const result = await response.text();
+            document.getElementById('response').innerText = `Login: ${result}`;
+        }
+    </script>
+</body>
+</html>
