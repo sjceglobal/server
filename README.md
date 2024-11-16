@@ -1,32 +1,75 @@
 # server
+[서버의 기본 뼈대 생성]
+- Nodejs 설치
+- 설명은 모두 모듈화에 기반
+- 어떤 시스템이든 서버의 기반한 모듈을 만든다.
 
-## 240928
-1. docker 설치
-2. docker redis 설치
-3. docker mongo 설치
-4. docker nodejs 설치
-5. docker nginx 설치
+- 서버 base 모듈 생성
+ㄴ express 모듈 로드
 
+- Database 커넥터 모듈 생성
+ㄴ redis 모듈 로드
+ㄴ mongoDB 모듈 로드
 
-server side
-1. express module 설치
-2. redis module 설치 
-3. mongodb module 설치
-4. redis get/set 
-5. mongodb get/set
+- 상속 받아 커스텀 라이브러리 생성
+ㄴ redis getter / setter
 
-개념 설명
-1. 동기/비동기
-2. database(memory db, indexing)
-
-client side
-1. client <-> server 통신
+- 에러 코드 처리
+ㄴ 20x 40x 50x
+==================================
 
 
-## 241005
-1. database 설계 및 테이블 생성(완료)
-2. Server invalidate 체크(완료)
-3. Server transaction 처리(완료)
-4. Server Webfilter 처리(개념설명)
-5. Server Session 처리(완료)
-6. 암호화(다음시간, 과제에 연결됨)
+[서버의 코딩의 기본]
+
+- web filter 체크
+ㄴ (보안) xss 공격 방어
+ㄴ request webfilter
+ㄴ response webfilter
+
+- invalidate 체크
+ㄴ 입력값에 대한 공백체크
+ㄴ throw 처리
+
+- 논리 로직 처리
+ㄴ DB 커넥션 생성
+ㄴ 커넥션의 끝맺음 
+ㄴ DB와의 통신 방식
+ㄴ 트랜잭션 처리
+ㄴ rollback에 대한 개념
+ㄴ throw 처리
+ㄴ Data load & Save
+
+- 에러코드 처리
+ㄴ 에러코드 정의(200, 403 등
+
+==================================
+
+[개념]
+- 동기처리와 비동기처리 개념
+ㄴ Sync / Async
+
+- 데이터 암호화
+ㄴ 단방향 암호화(SHA)
+ㄴ 대칭 양방향 암호화(AES)
+ㄴ 비대칭 양방향 암호화(RSA)
+
+- 데이터 통신 방식
+ㄴ SSL 개념
+ㄴ JWT 개념
+
+- CPU & Memory 역할
+ㄴ 클라이언트 기준
+ㄴ 서버 기준
+
+- 캐싱 시스템
+ㄴ 클라이언트 캐시 용도
+ㄴ 서버의 캐시 용도
+ㄴ 캐시서버의 용도
+
+- 서버개발자가 OS 공부를 해야하는 이유
+ㄴ 은행원 알고리즘(deadlock)
+ㄴ 전역변수와 지역변수의 사용법
+ㄴ 동시처리성의 중요성
+
+- 패턴
+ㄴ Singleton 패턴(메모리 적재시기와 사용법)
