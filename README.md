@@ -5,71 +5,75 @@
 - 어떤 시스템이든 서버의 기반한 모듈을 만든다.
 
 - 서버 base 모듈 생성
-ㄴ express 모듈 로드
+<br>express 모듈 로드
 
 - Database 커넥터 모듈 생성
-ㄴ redis 모듈 로드
-ㄴ mongoDB 모듈 로드
+<br>redis 모듈 로드
+<br>mongoDB 모듈 로드
 
 - 상속 받아 커스텀 라이브러리 생성
-ㄴ redis getter / setter
+<br>redis getter / setter
 
 - 에러 코드 처리
-ㄴ 20x 40x 50x
-==================================
+<br>20x 40x 50x
 
+<br><br>
+==================================
+<br><br>
 
 [서버의 코딩의 기본]
 
 - web filter 체크
-ㄴ (보안) xss 공격 방어
-ㄴ request webfilter
-ㄴ response webfilter
+<br>(보안) xss 공격 방어
+<br>request webfilter
+<br>response webfilter
 
 - invalidate 체크
-ㄴ 입력값에 대한 공백체크
-ㄴ throw 처리
+<br>입력값에 대한 공백체크
+<br>throw 처리
 
 - 논리 로직 처리
-ㄴ DB 커넥션 생성
-ㄴ 커넥션의 끝맺음 
-ㄴ DB와의 통신 방식
-ㄴ 트랜잭션 처리
-ㄴ rollback에 대한 개념
-ㄴ throw 처리
-ㄴ Data load & Save
+<br>DB 커넥션 생성
+<br>커넥션의 끝맺음 
+<br>DB와의 통신 방식
+<br>트랜잭션 처리
+<br>rollback에 대한 개념
+<br>throw 처리
+<br>Data load & Save
 
 - 에러코드 처리
-ㄴ 에러코드 정의(200, 403 등
+<br>에러코드 정의(200, 403 등)
 
+<br><br>
 ==================================
-
+<br>
+<br>
 [개념]
 - 동기처리와 비동기처리 개념
-ㄴ Sync / Async
+<br>Sync / Async
 
 - 데이터 암호화
-ㄴ 단방향 암호화(SHA)
-ㄴ 대칭 양방향 암호화(AES)
-ㄴ 비대칭 양방향 암호화(RSA)
+<br>단방향 암호화(SHA)
+<br>대칭 양방향 암호화(AES)
+<br>비대칭 양방향 암호화(RSA)
 
 - 데이터 통신 방식
-ㄴ SSL 개념
-ㄴ JWT 개념
+<br>SSL 개념
+<br>JWT 개념
 
 - CPU & Memory 역할
-ㄴ 클라이언트 기준
-ㄴ 서버 기준
+<br>클라이언트 기준
+<br>서버 기준
 
 - 캐싱 시스템
-ㄴ 클라이언트 캐시 용도
-ㄴ 서버의 캐시 용도
-ㄴ 캐시서버의 용도
+<br>클라이언트 캐시 용도
+<br>서버의 캐시 용도
+<br>캐시서버의 용도
 
 - 서버개발자가 OS 공부를 해야하는 이유
-ㄴ 은행원 알고리즘(deadlock)
-ㄴ 전역변수와 지역변수의 사용법
-ㄴ 동시처리성의 중요성
+<br>은행원 알고리즘(deadlock)
+<br>전역변수와 지역변수의 사용법
+<br>동시처리성의 중요성
 
 - 패턴
-ㄴ Singleton 패턴(메모리 적재시기와 사용법)
+<br>Singleton 패턴(메모리 적재시기와 사용법)
